@@ -1,4 +1,8 @@
 #!/bin/bash
+sudo add-apt-repository ppa:webupd8team/java -y
+sudo apt-get update
+sudo apt-get install oracle-java8-installer -y
+
 sudo service springboot stop
 
 # create springboot service
@@ -20,12 +24,15 @@ description "springboot Server"
 
   # adapt paths:
   
-  exec java -jar /home/ubuntu/deploy/spring-boot-web-0.0.1-SNAPSHOT.jar  >> /var/log/springboot.log 2>&1
+  exec java -jar /home/ubuntu/deploy/spring-boot-web-0.0.1-SNAPSHOT.jar  
 
   # cleanup temp directory after stop
   post-stop script
   end script
 EOF
+
+sudo initctl reload-configuration
+
 
 # remove old directory
 rm -rf /home/ubuntu/deploy
