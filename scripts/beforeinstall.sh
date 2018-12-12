@@ -3,11 +3,13 @@ sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update
 sudo apt-get install oracle-java8-installer -y
 
-sudo service springboot stop
+#service springboot stop
+
+sudo systemctl stop springboot
 
 # create springboot service
-cat > /etc/init/springboot.conf <<'EOF'
-
+#cat > /etc/init/springboot.conf <<'EOF'
+cat > /etc/systemd/system/springboot.service <<'EOF'
 description "springboot Server"
 
   start on runlevel [2345]
@@ -31,7 +33,8 @@ description "springboot Server"
   end script
 EOF
 
-sudo initctl reload-configuration
+#sudo initctl reload-configuration
+systemctl reload-configuration
 
 
 # remove old directory
