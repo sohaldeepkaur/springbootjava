@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
    - source: target/spring-boot-web-0.0.1-SNAPSHOT.jar
-     destination: /home/ubuntu/deploy/
+     destination: /home/ubuntu/deployjavaapp/
 hooks:
   BeforeInstall:
     - location: scripts/beforeinstall.sh
