@@ -11,8 +11,8 @@ Description=springboot server
 After=network.target
 [Service]
 User=nobody
-WorkingDirectory=/home/ubuntu/springbootjava
-ExecStart=java -jar /home/ubuntu/springbootjava/target/spring-boot-web-0.0.1-SNAPSHOT.jar
+WorkingDirectory=/home/ubuntu/deployjavaapp
+ExecStart=java -jar /home/ubuntu/deployjavaapp/spring-boot-web-0.0.1-SNAPSHOT.jar
 Restart=always
 RestartSec=500ms
 StartLimitInterval=0
