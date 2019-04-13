@@ -10,7 +10,7 @@ sudo apt-get install nginx -y
 cat > /etc/nginx/sites-available/tech.conf <<'EOF'
 server {
     listen 80;
-    server_name springboot.sohaldeep.tech;
+    server_name springbootapp.sohaldeep.tech;
      if ($http_x_forwarded_proto != 'https') {
        return 301 https://$host$request_uri;
    }
