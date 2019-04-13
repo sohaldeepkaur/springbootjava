@@ -3,31 +3,6 @@ sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update
 sudo apt-get install oracle-java8-installer -y
 
-sudo apt-get install nginx -y
-
-#nginx conf virtualhost
-
-cat > /etc/nginx/sites-available/tech.conf <<'EOF'
-server {
-    listen 80;
-    server_name springbootapp.sohaldeep.tech;
-     if ($http_x_forwarded_proto != 'https') {
-       return 301 https://$host$request_uri;
-   }
-    location / {
-        proxy_pass http://127.0.0.1:8090;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-EOF
-
-sudo ln -s /etc/nginx/sites-available/tech.conf /etc/nginx/sites-enabled/tech.conf 
-
-
-
 
 sudo service springboot stop
 sudo vim /etc/systemd/system/springboot.service
