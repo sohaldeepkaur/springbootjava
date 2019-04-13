@@ -23,9 +23,9 @@ EOF
 systemctl enable reload-configuration
 
 # remove old directory
-rm -rf /home/ubuntu/deployjavaapp
+rm -rf /home/ubuntu/springbootjava
 
 # create directory deploy
-mkdir -p /home/ubuntu/deployjavaapp
+mkdir -p /home/ubuntu/springbootjava
 
 
