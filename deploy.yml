@@ -2,5 +2,5 @@
  - hosts: deploy
    tasks:
     - name: deploye shell
-      shell: java -jar /root/Desktop/spring-boot-web-0.0.1-SNAPSHOT.jar
+      yum: name=git state=latest
 
